@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness - Análisis Emocional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Load face-api.js from CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <main class="app-container">
+        <!-- Welcome Screen -->
+        <section id="welcome-screen" class="screen active">
+            <header class="header">
+                <h1>Bienvenido a tu Espacio de Bienestar</h1>
+                <p>Descubre tu estado emocional actual a través de un breve análisis facial.</p>
+            </header>
+            <div class="actions">
+                <button id="btn-camera" class="btn btn-primary">
+                    <span class="icon">📷</span> Abrir Cámara
+                </button>
+                <button id="btn-upload" class="btn btn-secondary">
+                    <span class="icon">📁</span> Subir Foto
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </button>
+            </div>
+            <p class="privacy-note">Tu imagen no se guarda ni se comparte. Tu privacidad es nuestra prioridad.</p>
+        </section>
+
+        <!-- Camera View -->
+        <section id="camera-screen" class="screen">
+            <div class="video-wrapper">
+                <video id="webcam" autoplay muted playsinline></video>
+                <canvas id="overlay"></canvas>
+            </div>
+            <div class="controls">
+                <button id="btn-capture" class="btn btn-primary">Capturar</button>
+                <button id="btn-back-camera" class="btn btn-text">Volver</button>
+            </div>
+        </section>
+
+        <!-- Loading Screen -->
+        <section id="loading-screen" class="screen">
+            <div class="loader"></div>
+            <p>Analizando tu expresión...</p>
+        </section>
+
+        <!-- Results Screen -->
+        <section id="results-screen" class="screen">
+            <div class="results-layout">
+                <div class="captured-image-container">
+                    <img id="result-img" src="" alt="Captura">
+                </div>
+                <div class="analysis-panel">
+                    <div class="main-emotion">
+                        <span id="emotion-icon" class="large-icon"></span>
+                        <h2 id="emotion-label"></h2>
+                    </div>
+                    <div id="emotions-chart" class="chart">
+                        <!-- Chart bars will be injected here -->
+                    </div>
+                    <p id="wellness-tip" class="tip"></p>
+                    <div class="session-info">
+                        Análisis en esta sesión: <span id="session-count">0</span>
+                    </div>
+                    <button id="btn-reset" class="btn btn-primary">Nuevo análisis</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Error Toast -->
+        <div id="toast" class="toast hidden"></div>
+    </main>
+</body>
+</html>
