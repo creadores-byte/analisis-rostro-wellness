@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,11 @@
     <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
     <script defer src="script.js"></script>
 </head>
+
 <body>
+    <div class="branding-logo">
+        <img src="logo.png" alt="Consciencia Superior Logo" id="company-logo">
+    </div>
     <main class="app-container">
         <!-- Welcome Screen -->
         <section id="welcome-screen" class="screen active">
@@ -72,9 +77,10 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- Error Toast -->
         <div id="toast" class="toast hidden"></div>
     </main>
 </body>
+
 </html>

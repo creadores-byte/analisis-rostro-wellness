@@ -114,9 +114,11 @@ async function startCamera() {
     } catch (err) {
         console.error('Error cámara:', err);
         if (err.name === 'NotAllowedError') {
-            showToast('Error: Permiso de cámara denegado. Actívalo en el candado de la barra de direcciones.');
+            showToast('Error: Permiso denegado. Haz clic en el icono del candado (izquierda de la URL) y selecciona "Permitir" en cámara.');
+        } else if (err.name === 'NotFoundError') {
+            showToast('Error: No se encontró ninguna cámara conectada.');
         } else {
-            showToast('No se pudo acceder a la cámara. Revisa las configuraciones de tu dispositivo.');
+            showToast('No se pudo acceder a la cámara. Si estás en móvil, intenta cerrar otras apps que usen la cámara.');
         }
     }
 }

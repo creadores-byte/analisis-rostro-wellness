@@ -1,0 +1,6 @@
+// This tool will handle the image from the message context automatically if I use the correct path or reference.
+// But since I have the image in the prompt, I should "extract" it.
+// Actually, I can't "extract" it directly to a file without a tool, but I can use `write_to_file` if I had the content.
+// Wait, I can use `copy_file` if it's in a temp location, but the user just sent it.
+// I will assume the image is available as an artifact or I can just use a placeholder if I can't find it?
+// No, I should use the one they sent. I'll search for it first.
